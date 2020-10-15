@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "./out",
+        "outDir": "./dist",
         "sourceMap": true,
         "strict": true,
         "strictPropertyInitialization": true,
@@ -10,6 +10,7 @@
         "module": "esnext",
         "moduleResolution": "node",
         "target": "es6",
+        "jsx": "react",
         "isolatedModules": false,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
@@ -22,7 +23,7 @@
         "removeComments": false,
         "suppressImplicitAnyIndexErrors": true,
         "allowJs": true,
-        "lib": ["es2015", "es2016", "es2017", "dom"],
+        "lib": ["ESNext", "dom"],
         "baseUrl": "."
     },
     "include": ["src", "types", "test", "build"],
