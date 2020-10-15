@@ -3,6 +3,8 @@ import React from 'react';
 import { useEffect } from 'react';
 import { getQueryByName, get } from 'src/utils/http';
 
+import { Render as Drawing } from 'src/components/drawing-main';
+
 // 移除 loading 界面
 function loaded() {
     const loading = document.getElementById('start-loading')!;
@@ -35,7 +37,7 @@ export const App = () => {
         fetchMap().then(loaded);
     }, []);
 
-    return <div>
-        测试
-    </div>;
+    return <>
+        <Drawing />
+    </>;
 };

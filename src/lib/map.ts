@@ -1,5 +1,7 @@
 import { default as Point, PointLike, PointCall } from 'src/lib/point';
-import { def, clone } from '../utils/object';
+
+import { def, clone } from 'src/utils/object';
+import { unique, removeVal } from 'src/utils/array';
 
 /** 节点类型常量 */
 export enum NodeType {
@@ -76,13 +78,15 @@ export function outputMap() {
 
     Object.values(copy).forEach((data) => {
         if (data.connect.length === 0) {
-            delete data.connect;
+            // TODO:
+            // delete data.connect;
         }
         else {
             data.connect = data.connect.map((item) => Array.from(item)) as any;
         }
 
-        delete data.point;
+        // TODO:
+        // delete data.point;
     });
 
     return JSON.stringify(copy);
@@ -163,7 +167,7 @@ export function mergePoint(data: NodeInputData, large = false): void {
     }
     else {
         newData.connect = newData.connect.concat(oldData.connect);
-        newData.connect = newData.connect.unique(point2key);
+        newData.connect = unique(newData.connect, point2key);
     }
 
     $map[key] = newData;
@@ -276,7 +280,9 @@ export function deleteConnect(point: PointLike, connect: PointLike, large = fals
         throw new Error(`(map) space point: ${key}`);
     }
 
-    return data.connect.delete((node) => node.isEqual(check));
+    // TODO:
+    // return data.connect.delete((node) => node.isEqual(check));
+    return false;
 }
 
 /**

@@ -1,4 +1,4 @@
-import { isNumber } from '../utils';
+import { isNumber } from 'src/utils/assert';
 
 /** 多对一的数据映射 */
 export default class HashMap {

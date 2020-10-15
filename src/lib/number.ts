@@ -1,4 +1,4 @@
-import { isArray } from './utils';
+import { isArray } from 'src/utils/assert';
 import BigNumber from 'bignumber.js';
 
 /** 数字数量级简写 */

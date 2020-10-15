@@ -1,6 +1,7 @@
-import store from 'src/vuex';
+// import store from 'src/vuex';
 
-import { def, wait } from './utils';
+import { def } from 'src/utils/object';
+import { wait } from 'src/utils/func';
 import { default as Point, PointLike } from './point';
 import { outputMap, MapHash, NodeType } from './map';
 
@@ -74,59 +75,59 @@ export default class MapDebug {
         this.$el.innerHTML = '';
     }
     whole() {
-        let count = 0;
-        store.state.lines.forEach((line) => {
-            this.text(
-                [1000, count * 25 + 50],
-                `${line.connect[0]} ---> ${line.id} ---> ${line.connect[1]}`,
-            );
-            count++;
-        });
-        count++;
+        // let count = 0;
+        // store.state.lines.forEach((line) => {
+        //     this.text(
+        //         [1000, count * 25 + 50],
+        //         `${line.connect[0]} ---> ${line.id} ---> ${line.connect[1]}`,
+        //     );
+        //     count++;
+        // });
+        // count++;
 
-        const data = JSON.parse(outputMap()) as MapHash;
+        // const data = JSON.parse(outputMap()) as MapHash;
 
-        Object.values(data).forEach((status) => {
-            const point = Point.from(status.point);
-            // 点本身
-            this.point(point, nodeColor[status.type], 20);
-            // 点的 ID
-            if (status.type === NodeType.Line) {
-                this.text(point, status.id.split('_')[1], 20);
-            }
-            else if (status.type === NodeType.PartPoint) {
-                this.text(new Point(point, [0.4, -0.4]), status.id, 20);
-            }
-            else if (
-                status.type === NodeType.LineCoverPoint ||
-                status.type === NodeType.LineCrossPoint
-            ) {
-                const textPosition = [1000, count * 25 + 50];
+        // Object.values(data).forEach((status) => {
+        //     const point = Point.from(status.point);
+        //     // 点本身
+        //     this.point(point, nodeColor[status.type], 20);
+        //     // 点的 ID
+        //     if (status.type === NodeType.Line) {
+        //         this.text(point, status.id.split('_')[1], 20);
+        //     }
+        //     else if (status.type === NodeType.PartPoint) {
+        //         this.text(new Point(point, [0.4, -0.4]), status.id, 20);
+        //     }
+        //     else if (
+        //         status.type === NodeType.LineCoverPoint ||
+        //         status.type === NodeType.LineCrossPoint
+        //     ) {
+        //         const textPosition = [1000, count * 25 + 50];
 
-                this.path([point.mul(20), textPosition], '#222222');
-                this.text(textPosition, status.id);
-                count++;
-            }
+        //         this.path([point.mul(20), textPosition], '#222222');
+        //         this.text(textPosition, status.id);
+        //         count++;
+        //     }
 
-            // 点的连接关系
-            const connect = (status.connect || []).map(Point.from);
-            connect.forEach(([tx, ty]) => {
-                const [x, y] = point;
+        //     // 点的连接关系
+        //     const connect = (status.connect || []).map(Point.from);
+        //     connect.forEach(([tx, ty]) => {
+        //         const [x, y] = point;
 
-                if (x - tx < 0) {
-                    this.path([[x * 20, y * 20 - 3], [tx * 20, ty * 20 - 3]]);
-                }
-                else if (x - tx > 0) {
-                    this.path([[x * 20, y * 20 + 3], [tx * 20, ty * 20 + 3]]);
-                }
-                else if (y - ty < 0) {
-                    this.path([[x * 20 - 3, y * 20], [tx * 20 - 3, ty * 20]]);
-                }
-                else if (y - ty > 0) {
-                    this.path([[x * 20 + 3, y * 20], [tx * 20 + 3, ty * 20]]);
-                }
-            });
-        });
+        //         if (x - tx < 0) {
+        //             this.path([[x * 20, y * 20 - 3], [tx * 20, ty * 20 - 3]]);
+        //         }
+        //         else if (x - tx > 0) {
+        //             this.path([[x * 20, y * 20 + 3], [tx * 20, ty * 20 + 3]]);
+        //         }
+        //         else if (y - ty < 0) {
+        //             this.path([[x * 20 - 3, y * 20], [tx * 20 - 3, ty * 20]]);
+        //         }
+        //         else if (y - ty > 0) {
+        //             this.path([[x * 20 + 3, y * 20], [tx * 20 + 3, ty * 20]]);
+        //         }
+        //     });
+        // });
     }
 }
 
