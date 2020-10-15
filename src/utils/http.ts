@@ -1,4 +1,4 @@
-import { isUndef, isBaseType } from './assertion';
+import { isUndef, isBaseType } from './assert';
 
 /**
  * 由输入对象创建 url 链接参数

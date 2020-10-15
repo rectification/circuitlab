@@ -1,5 +1,5 @@
 import { default as Point, PointLike, PointCall } from 'src/lib/point';
-import { def, clone } from './utils';
+import { def, clone } from '../utils/object';
 
 /** 节点类型常量 */
 export enum NodeType {

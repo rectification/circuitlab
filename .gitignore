@@ -3,6 +3,7 @@ _文档/
 .deploy_git
 
 dist
+draft
 node_modules
 npm-debug.log*
 

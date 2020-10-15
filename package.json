@@ -4,10 +4,8 @@
   "description": "在线电路仿真系统",
   "scripts": {
     "ts-node": "node node_modules/ts-node/dist/bin.js --project tsconfig.compile.json --transpile-only",
-    "dev": "cross-env NODE_ENV=development SERVER_TYPE=memory npm run ts-node ./build/webpack.dev.ts",
-    "dev:local": "cross-env NODE_ENV=development SERVER_TYPE=local npm run ts-node ./build/webpack.dev.ts",
-    "build": "npm run ts-node build/webpack.prod.ts",
-    "test": "jest --config test/jest.conf.js --coverage --no-cache"
+    "dev": "cross-env NODE_ENV=development npm run ts-node ./build/webpack.dev.ts",
+    "build": "cross-env NODE_ENV=production npm run ts-node build/webpack.prod.ts"
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",
@@ -54,6 +52,7 @@
     "terser-webpack-plugin": "^5.0.0",
     "ts-loader": "^8.0.5",
     "ts-node": "^9.0.0",
+    "tslib": "^2.0.3",
     "typescript": "^4.0.3",
     "url-loader": "^4.1.1",
     "webpack": "^5.1.0",

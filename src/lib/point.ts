@@ -1,5 +1,5 @@
 import Matrix from './matrix';
-import { isNumber } from './utils';
+import { isNumber } from '../utils/assert';
 
 export type PointLike = number[] | Point;
 export type PointInput = PointLike | number;

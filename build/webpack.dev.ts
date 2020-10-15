@@ -1,7 +1,5 @@
 import Koa from 'koa';
 import Webpack from 'webpack';
-import MemoryFS from 'memory-fs';
-import FriendlyErrorsPlugin from 'friendly-errors-webpack-plugin';
 
 import baseConfig from './webpack.base';
 
@@ -24,33 +22,33 @@ if (fs.pathExistsSync(output)) {
 baseConfig.devtool = 'eval-source-map';
 // 调试用的插件
 baseConfig.plugins!.push(
-    new Webpack.NamedModulesPlugin(),
     new Webpack.NoEmitOnErrorsPlugin(),
-    new FriendlyErrorsPlugin({
-        compilationSuccessInfo: {
-            messages: [`Your application is already set at http://${host}:${port}/.\n`],
-            notes: [],
-        },
-    }),
 );
 
 const compiler = Webpack(baseConfig);
 
-let fileSystem: MemoryFS | typeof fs;
-
-if (process.env.SERVER_TYPE === 'memory') {
-    fileSystem = compiler.outputFileSystem = new MemoryFS();
-}
-else {
-    fileSystem = fs;
-}
-
 compiler.watch(
     { ignored: /node_modules/ },
-    (err?: Error) => (
-        (err && console.error(err.stack || err)) ||
-        (err && (err as any).details && console.error((err as any).details))
-    ),
+    (err, stats) => {
+        console.log('\x1Bc');
+
+        if (err) {
+            console.error(err.stack || err);
+        }
+
+        if (stats) {
+            console.log(stats.toString({
+                chunks: false,
+                chunkModules: false,
+                chunkOrigins: false,
+                colors: true,
+                modules: false,
+                children: false,
+            }));
+
+            console.log(`\nYour application is already set at http://${host}:${port}/.\n`);
+        }
+    },
 );
 
 app.listen(port);
@@ -68,14 +66,14 @@ app.use((ctx, next) => {
         ? join(output, ctx.path, 'index.html')
         : join(output, ctx.path);
 
-    if (!fileSystem.existsSync(filePath)) {
+    if (!fs.existsSync(filePath)) {
         ctx.status = 404;
         ctx.length = 0;
         next();
         return (false);
     }
 
-    const fileStat = fileSystem.statSync(filePath);
+    const fileStat = fs.statSync(filePath);
 
     ctx.type = getType(filePath)!;
     ctx.lastModified = new Date();
@@ -83,15 +81,8 @@ app.use((ctx, next) => {
     ctx.set('Accept-Ranges', 'bytes');
     ctx.set('Cache-Control', 'max-age=0');
 
-    // node-fs
-    if (fileStat instanceof fs.Stats) {
-        ctx.length = fileStat.size;
-    }
-    // memory-fs
-    else {
-        ctx.length = Buffer.from(fileSystem.readFileSync(filePath)).length;
-    }
+    ctx.length = fileStat.size;
+    ctx.body = fs.createReadStream(filePath);
 
-    ctx.body = fileSystem.createReadStream(filePath);
     next();
 });

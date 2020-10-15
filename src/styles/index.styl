@@ -1,7 +1,7 @@
-@import './variable'
-@import './start-loading'
+@import './variable';
+@import './start-loading';
 
-*
+* {
     margin 0
     padding 0
     border 0
@@ -9,8 +9,9 @@
     user-select inherit
     -webkit-margin-before 0
     -webkit-margin-after 0
+}
 
-html, body, #app
+html, body, #app {
     overflow hidden
     width 100%
     height 100%
@@ -20,14 +21,18 @@ html, body, #app
     font-family font-default
     font-size font-default-size
     font-smoothing()
+}
 
-input, textarea
+input, textarea {
     cursor text
+}
 
 .fade-enter-active,
-.fade-leave-active
+.fade-leave-active {
     transition opacity .4s ease
+}
 
 .fade-enter,
-.fade-leave-active
+.fade-leave-active {
     opacity 0
+}
