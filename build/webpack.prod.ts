@@ -1,5 +1,3 @@
-process.env.NODE_ENV = 'production';
-
 import * as fs from 'fs-extra';
 import * as config from './config';
 
@@ -8,7 +6,7 @@ import webpack from 'webpack';
 import baseConfig from './webpack.base';
 import TerserPlugin from 'terser-webpack-plugin';
 import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin';
-import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 if (!baseConfig.optimization) {
     baseConfig.optimization = {};
@@ -19,13 +17,12 @@ if (!baseConfig.optimization.minimizer) {
 }
 
 baseConfig.plugins!.push(
-    new OptimizeCSSPlugin(),
+    new (OptimizeCSSPlugin as any)(),
 );
 
 baseConfig.optimization.minimizer.push(
-    new TerserPlugin({
+    new (TerserPlugin as any)({
         test: /\.js$/i,
-        cache: false,
         terserOptions: {
             ecma: 7,
             ie8: false,
@@ -44,9 +41,9 @@ baseConfig.performance = {
     maxEntrypointSize: 512000,
 };
 
-if (config.bundleAnalyzer) {
-    baseConfig.plugins!.push(new BundleAnalyzerPlugin());
-}
+// if (config.bundleAnalyzer) {
+//     baseConfig.plugins!.push(new BundleAnalyzerPlugin());
+// }
 
 // 删除输出文件夹
 if (fs.pathExistsSync(config.output)) {
@@ -54,20 +51,22 @@ if (fs.pathExistsSync(config.output)) {
 }
 
 webpack(baseConfig, (err, stats) => {
+    console.log('\x1Bc');
+
     if (err) {
         throw err;
     }
 
-    console.log('\x1Bc');
-
-    console.log(stats.toString({
-        chunks: false,
-        chunkModules: false,
-        chunkOrigins: false,
-        colors: true,
-        modules: false,
-        children: false,
-    }));
-
-    console.log(chalk.cyan('\n  Build complete.\n'));
+    if (stats) {
+        console.log(stats.toString({
+            chunks: false,
+            chunkModules: false,
+            chunkOrigins: false,
+            colors: true,
+            modules: false,
+            children: false,
+        }));
+    
+        console.log(chalk.cyan('\n  Build complete.\n'));
+    }
 });

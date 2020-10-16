@@ -27,6 +27,8 @@ console.log('\x1Bc');
 // 编译 example
 // example();
 
+const styleLoader = isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader;
+
 const baseConfig: Webpack.Configuration = {
     mode: process.env.NODE_ENV as Webpack.Configuration['mode'],
     entry: {
@@ -60,12 +62,12 @@ const baseConfig: Webpack.Configuration = {
             },
             {
                 test: /\.css$/,
-                use: [MiniCssExtractPlugin.loader, 'css-loader'],
+                use: [styleLoader, 'css-loader'],
             },
             {
                 test: /\.styl(us)?$/,
                 use: [
-                    MiniCssExtractPlugin.loader,
+                    styleLoader,
                     {
                         loader: 'css-loader',
                         options: {
@@ -124,14 +126,14 @@ const baseConfig: Webpack.Configuration = {
                 : 'styles/main.[contenthash:20].css',
         }),
         // 复制文件
-        new CopyWebpackPlugin({
-            patterns: [
-                {
-                    from: config.assert,
-                    to: isDevelopment ? config.publicPath : config.output,
-                },
-            ],
-        }),
+        // new CopyWebpackPlugin({
+        //     patterns: [
+        //         {
+        //             from: config.assert,
+        //             to: isDevelopment ? config.publicPath : config.output,
+        //         },
+        //     ],
+        // }),
         // 打包后的文件插入 html 模板
         new HtmlWebpackPlugin({
             filename: 'index.html',
