@@ -10,41 +10,40 @@ devDependencies:
   '@types/fs-extra': 9.0.2
   '@types/html-webpack-plugin': 3.2.3
   '@types/koa': 2.11.5
-  '@types/memory-fs': 0.3.2
   '@types/mini-css-extract-plugin': 1.0.0
   '@types/node': 14.11.8
   '@types/optimize-css-assets-webpack-plugin': 5.0.1
   '@types/react': 16.9.52
   '@types/react-dom': 16.9.8
   '@types/terser-webpack-plugin': 4.2.0
-  '@types/webpack': 4.41.22
   '@types/webpack-bundle-analyzer': 3.8.0
   '@typescript-eslint/eslint-plugin': 4.4.1_08be5cdc80d109b060448e8ad59a1c67
   '@typescript-eslint/parser': 4.4.1_eslint@7.11.0+typescript@4.0.3
   chalk: 4.1.0
-  copy-webpack-plugin: 6.2.1_webpack@5.1.0
+  copy-webpack-plugin: 6.2.1_webpack@5.1.3
   cross-env: 7.0.2
-  css-loader: 5.0.0_webpack@5.1.0
+  css-loader: 5.0.0_webpack@5.1.3
   eslint: 7.11.0
-  file-loader: 6.1.1_webpack@5.1.0
+  file-loader: 6.1.1_webpack@5.1.3
   fs-extra: 9.0.1
-  html-webpack-plugin: 4.5.0_webpack@5.1.0
+  html-webpack-plugin: 4.5.0_webpack@5.1.3
   koa: 2.13.0
   memory-fs: 0.5.0
   mime: 2.4.6
-  mini-css-extract-plugin: 1.0.0_webpack@5.1.0
-  optimize-css-assets-webpack-plugin: 5.0.4_webpack@5.1.0
-  progress-bar-webpack-plugin: 2.1.0_webpack@5.1.0
+  mini-css-extract-plugin: 1.0.0_webpack@5.1.3
+  optimize-css-assets-webpack-plugin: 5.0.4_webpack@5.1.3
+  progress-bar-webpack-plugin: 2.1.0_webpack@5.1.3
+  style-loader: 2.0.0_webpack@5.1.3
   stylus: 0.54.8
-  stylus-loader: 4.1.1_stylus@0.54.8+webpack@5.1.0
-  terser-webpack-plugin: 5.0.0_webpack@5.1.0
+  stylus-loader: 4.1.1_stylus@0.54.8+webpack@5.1.3
+  terser-webpack-plugin: 5.0.0_webpack@5.1.3
   ts-loader: 8.0.5_typescript@4.0.3
   ts-node: 9.0.0_typescript@4.0.3
   tslib: 2.0.3
   typescript: 4.0.3
   typescript-plugin-css-modules: 2.7.0_typescript@4.0.3
-  url-loader: 4.1.1_file-loader@6.1.1+webpack@5.1.0
-  webpack: 5.1.0_webpack@5.1.0
+  url-loader: 4.1.1_file-loader@6.1.1+webpack@5.1.3
+  webpack: 5.1.3_webpack@5.1.3
   webpack-bundle-analyzer: 3.9.0
 lockfileVersion: 5.1
 packages:
@@ -518,13 +517,6 @@ packages:
     resolution:
       integrity: sha1-orgTgr9l1yvcO9kGq97iWf7968I=
       tarball: '@types/koa/download/@types/koa-2.11.5.tgz'
-  /@types/memory-fs/0.3.2:
-    dependencies:
-      '@types/node': 14.11.8
-    dev: true
-    resolution:
-      integrity: sha1-XUdT+bOQywd8jIr5e8lkYzmc7M0=
-      tarball: '@types/memory-fs/download/@types/memory-fs-0.3.2.tgz'
   /@types/mime/2.0.3:
     dev: true
     resolution:
@@ -1613,7 +1605,7 @@ packages:
     resolution:
       integrity: sha1-EVqhqZmP+rYZb5MHatbaO5E2Yq4=
       tarball: copy-to-clipboard/download/copy-to-clipboard-3.3.1.tgz
-  /copy-webpack-plugin/6.2.1_webpack@5.1.0:
+  /copy-webpack-plugin/6.2.1_webpack@5.1.3:
     dependencies:
       cacache: 15.0.5
       fast-glob: 3.2.4
@@ -1625,7 +1617,7 @@ packages:
       p-limit: 3.0.2
       schema-utils: 3.0.0
       serialize-javascript: 5.0.1
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
       webpack-sources: 1.4.3
     dev: true
     engines:
@@ -1690,7 +1682,7 @@ packages:
     resolution:
       integrity: sha1-wZiUD2OnbX42wecQGLABchBUyyI=
       tarball: css-declaration-sorter/download/css-declaration-sorter-4.0.1.tgz
-  /css-loader/5.0.0_webpack@5.1.0:
+  /css-loader/5.0.0_webpack@5.1.3:
     dependencies:
       camelcase: 6.1.0
       cssesc: 3.0.0
@@ -1704,7 +1696,7 @@ packages:
       postcss-value-parser: 4.1.0
       schema-utils: 3.0.0
       semver: 7.3.2
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     engines:
       node: '>= 10.13.0'
@@ -2538,11 +2530,11 @@ packages:
     resolution:
       integrity: sha1-yg9u+m3T1WEzP7FFFQZcL6/fQ5w=
       tarball: file-entry-cache/download/file-entry-cache-5.0.1.tgz
-  /file-loader/6.1.1_webpack@5.1.0:
+  /file-loader/6.1.1_webpack@5.1.3:
     dependencies:
       loader-utils: 2.0.0
       schema-utils: 3.0.0
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     engines:
       node: '>= 10.13.0'
@@ -2664,6 +2656,8 @@ packages:
     engines:
       node: ^8.16.0 || ^10.6.0 || >=11.0.0
     optional: true
+    os:
+      - darwin
     resolution:
       integrity: sha1-+3OHA66NL5/pAMM4Nt3r7ouX8j4=
       tarball: fsevents/download/fsevents-2.1.3.tgz
@@ -2839,7 +2833,7 @@ packages:
     resolution:
       integrity: sha1-ki6W8fO7YIMsJjS3mIQJY4mx8FQ=
       tarball: html-minifier-terser/download/html-minifier-terser-5.1.1.tgz
-  /html-webpack-plugin/4.5.0_webpack@5.1.0:
+  /html-webpack-plugin/4.5.0_webpack@5.1.3:
     dependencies:
       '@types/html-minifier-terser': 5.1.1
       '@types/tapable': 1.0.6
@@ -2850,7 +2844,7 @@ packages:
       pretty-error: 2.1.1
       tapable: 1.1.3
       util.promisify: 1.0.0
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     engines:
       node: '>=6.9'
@@ -3469,7 +3463,7 @@ packages:
       node: '>=8.9.0'
     resolution:
       integrity: sha1-5MrOW4FtQloWa18JfhDNErNgZLA=
-      tarball: loader-utils/download/loader-utils-2.0.0.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Floader-utils%2Fdownload%2Floader-utils-2.0.0.tgz
+      tarball: loader-utils/download/loader-utils-2.0.0.tgz
   /locate-path/5.0.0:
     dependencies:
       p-locate: 4.1.0
@@ -3640,12 +3634,12 @@ packages:
     resolution:
       integrity: sha1-5bQHyQ20QvK+tbFiNz0Htpr/pNE=
       tarball: mime/download/mime-2.4.6.tgz
-  /mini-css-extract-plugin/1.0.0_webpack@5.1.0:
+  /mini-css-extract-plugin/1.0.0_webpack@5.1.3:
     dependencies:
       loader-utils: 2.0.0
       normalize-url: 1.9.1
       schema-utils: 3.0.0
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
       webpack-sources: 1.4.3
     dev: true
     engines:
@@ -3923,11 +3917,11 @@ packages:
     resolution:
       integrity: sha1-XTfh81B3udysQwE3InGv3rKhNZg=
       tarball: opener/download/opener-1.5.2.tgz
-  /optimize-css-assets-webpack-plugin/5.0.4_webpack@5.1.0:
+  /optimize-css-assets-webpack-plugin/5.0.4_webpack@5.1.3:
     dependencies:
       cssnano: 4.1.10
       last-call-webpack-plugin: 3.0.0
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     peerDependencies:
       webpack: ^4.0.0
@@ -4093,7 +4087,7 @@ packages:
       node: '>=8'
     resolution:
       integrity: sha1-8JkTPfft5CLoHR2ESCcO6z5CYfM=
-      tarball: pkg-dir/download/pkg-dir-4.2.0.tgz
+      tarball: pkg-dir/download/pkg-dir-4.2.0.tgz?cache=0&sync_timestamp=1602862042760&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fpkg-dir%2Fdownload%2Fpkg-dir-4.2.0.tgz
   /postcss-calc/7.0.5:
     dependencies:
       postcss: 7.0.35
@@ -4564,11 +4558,11 @@ packages:
     resolution:
       integrity: sha1-eCDZsWEgzFXKmud5JoCufbptf+I=
       tarball: process-nextick-args/download/process-nextick-args-2.0.1.tgz
-  /progress-bar-webpack-plugin/2.1.0_webpack@5.1.0:
+  /progress-bar-webpack-plugin/2.1.0_webpack@5.1.3:
     dependencies:
       chalk: 3.0.0
       progress: 2.0.3
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     peerDependencies:
       webpack: ^1.3.0 || ^2 || ^3 || ^4 || ^5
@@ -5677,6 +5671,19 @@ packages:
     resolution:
       integrity: sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=
       tarball: strip-json-comments/download/strip-json-comments-3.1.1.tgz
+  /style-loader/2.0.0_webpack@5.1.3:
+    dependencies:
+      loader-utils: 2.0.0
+      schema-utils: 3.0.0
+      webpack: 5.1.3_webpack@5.1.3
+    dev: true
+    engines:
+      node: '>= 10.13.0'
+    peerDependencies:
+      webpack: ^4.0.0 || ^5.0.0
+    resolution:
+      integrity: sha1-lmlgL9RpB0DqrsE3eZoDrdu8OTw=
+      tarball: style-loader/download/style-loader-2.0.0.tgz
   /stylehacks/4.0.3:
     dependencies:
       browserslist: 4.14.5
@@ -5688,7 +5695,7 @@ packages:
     resolution:
       integrity: sha1-Zxj8r00eB9ihMYaQiB6NlnJqcdU=
       tarball: stylehacks/download/stylehacks-4.0.3.tgz
-  /stylus-loader/4.1.1_stylus@0.54.8+webpack@5.1.0:
+  /stylus-loader/4.1.1_stylus@0.54.8+webpack@5.1.3:
     dependencies:
       fast-glob: 3.2.4
       klona: 2.0.4
@@ -5696,7 +5703,7 @@ packages:
       normalize-path: 3.0.0
       schema-utils: 3.0.0
       stylus: 0.54.8
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     engines:
       node: '>= 10.13.0'
@@ -5810,27 +5817,7 @@ packages:
     resolution:
       integrity: sha1-vegVCG4Qs58dzSmOidWW4VNeIA8=
       tarball: tar/download/tar-6.0.5.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Ftar%2Fdownload%2Ftar-6.0.5.tgz
-  /terser-webpack-plugin/4.2.3_webpack@5.1.0:
-    dependencies:
-      cacache: 15.0.5
-      find-cache-dir: 3.3.1
-      jest-worker: 26.5.0
-      p-limit: 3.0.2
-      schema-utils: 3.0.0
-      serialize-javascript: 5.0.1
-      source-map: 0.6.1
-      terser: 5.3.5
-      webpack: 5.1.0_webpack@5.1.0
-      webpack-sources: 1.4.3
-    dev: true
-    engines:
-      node: '>= 10.13.0'
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
-    resolution:
-      integrity: sha1-KNrvSoO9F8HbApcHCtwH/Iz8apo=
-      tarball: terser-webpack-plugin/download/terser-webpack-plugin-4.2.3.tgz
-  /terser-webpack-plugin/5.0.0_webpack@5.1.0:
+  /terser-webpack-plugin/5.0.0_webpack@5.1.3:
     dependencies:
       jest-worker: 26.5.0
       p-limit: 3.0.2
@@ -5838,7 +5825,7 @@ packages:
       serialize-javascript: 5.0.1
       source-map: 0.6.1
       terser: 5.3.5
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     engines:
       node: '>= 10.13.0'
@@ -6081,22 +6068,19 @@ packages:
     resolution:
       integrity: sha1-2pN/emLiH+wf0Y1Js1wpNQZ6bHI=
       tarball: urix/download/urix-0.1.0.tgz
-  /url-loader/4.1.1_file-loader@6.1.1+webpack@5.1.0:
+  /url-loader/4.1.1_file-loader@6.1.1+webpack@5.1.3:
     dependencies:
-      file-loader: 6.1.1_webpack@5.1.0
+      file-loader: 6.1.1_webpack@5.1.3
       loader-utils: 2.0.0
       mime-types: 2.1.27
       schema-utils: 3.0.0
-      webpack: 5.1.0_webpack@5.1.0
+      webpack: 5.1.3_webpack@5.1.3
     dev: true
     engines:
       node: '>= 10.13.0'
     peerDependencies:
       file-loader: '*'
       webpack: ^4.0.0 || ^5.0.0
-    peerDependenciesMeta:
-      file-loader:
-        optional: true
     resolution:
       integrity: sha1-KFBekFyuFYzwfJLKYi1/I35wpOI=
       tarball: url-loader/download/url-loader-4.1.1.tgz
@@ -6209,7 +6193,7 @@ packages:
     resolution:
       integrity: sha1-FGf25pLdzpHoi4BExENHsQh7vU8=
       tarball: webpack-sources/download/webpack-sources-2.0.1.tgz
-  /webpack/5.1.0_webpack@5.1.0:
+  /webpack/5.1.3_webpack@5.1.3:
     dependencies:
       '@types/eslint-scope': 3.7.0
       '@types/estree': 0.0.45
@@ -6232,7 +6216,7 @@ packages:
       pkg-dir: 4.2.0
       schema-utils: 3.0.0
       tapable: 2.0.0
-      terser-webpack-plugin: 4.2.3_webpack@5.1.0
+      terser-webpack-plugin: 5.0.0_webpack@5.1.3
       watchpack: 2.0.0
       webpack-sources: 2.0.1
     dev: true
@@ -6246,8 +6230,8 @@ packages:
       webpack-cli:
         optional: true
     resolution:
-      integrity: sha1-e6L8j1h+zwpBJHfS6XezqIGNuDw=
-      tarball: webpack/download/webpack-5.1.0.tgz
+      integrity: sha1-puT9JQ7yUT+UhErl2PdXAhWirEk=
+      tarball: webpack/download/webpack-5.1.3.tgz?cache=0&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fwebpack%2Fdownload%2Fwebpack-5.1.3.tgz
   /which/2.0.2:
     dependencies:
       isexe: 2.0.0
@@ -6312,14 +6296,12 @@ specifiers:
   '@types/fs-extra': ^9.0.2
   '@types/html-webpack-plugin': ^3.2.3
   '@types/koa': ^2.11.5
-  '@types/memory-fs': ^0.3.2
   '@types/mini-css-extract-plugin': ^1.0.0
   '@types/node': ^14.11.8
   '@types/optimize-css-assets-webpack-plugin': ^5.0.1
   '@types/react': ^16.9.52
   '@types/react-dom': ^16.9.8
   '@types/terser-webpack-plugin': ^4.2.0
-  '@types/webpack': ^4.41.22
   '@types/webpack-bundle-analyzer': ^3.8.0
   '@typescript-eslint/eslint-plugin': ^4.4.1
   '@typescript-eslint/parser': ^4.4.1
@@ -6341,6 +6323,7 @@ specifiers:
   progress-bar-webpack-plugin: ^2.1.0
   react: ^16.14.0
   react-dom: ^16.14.0
+  style-loader: ^2.0.0
   stylus: ^0.54.8
   stylus-loader: ^4.1.1
   terser-webpack-plugin: ^5.0.0
@@ -6350,5 +6333,5 @@ specifiers:
   typescript: ^4.0.3
   typescript-plugin-css-modules: ^2.7.0
   url-loader: ^4.1.1
-  webpack: ^5.1.0
+  webpack: ^5.1.3
   webpack-bundle-analyzer: ^3.9.0

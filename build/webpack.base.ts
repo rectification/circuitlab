@@ -91,6 +91,13 @@ const baseConfig: Webpack.Configuration = {
                     },
                 ],
             },
+            {
+                test: /\.(png|jpg|webp|svg)$/i,
+                loader: 'url-loader',
+                options: {
+                    limit: 8192,
+                },
+            },
         ],
     },
     optimization: {
@@ -126,14 +133,13 @@ const baseConfig: Webpack.Configuration = {
                 : 'styles/main.[contenthash:20].css',
         }),
         // 复制文件
-        // new CopyWebpackPlugin({
-        //     patterns: [
-        //         {
-        //             from: config.assert,
-        //             to: isDevelopment ? config.publicPath : config.output,
-        //         },
-        //     ],
-        // }),
+        new CopyWebpackPlugin({
+            patterns: [
+                {
+                    from: resolve('src/assets/favicons.ico'),
+                },
+            ],
+        }),
         // 打包后的文件插入 html 模板
         new HtmlWebpackPlugin({
             filename: 'index.html',
