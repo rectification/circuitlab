@@ -46,7 +46,10 @@
             position: relative;
             border: 4px solid #fff;
             border-radius: 5px;
-            animation: loader 2s infinite ease, border-colors 2s infinite ease;
+
+            :local {
+                animation: loader 2s infinite ease, border-colors 2s infinite ease;
+            }
         }
 
         .loader-inner {
@@ -54,95 +57,98 @@
             display: inline-block;
             width: 100%;
             background-color: #fff;
-            animation: loader-inner 2s infinite ease-in, background-colors 2s infinite ease;
+
+            :local {
+                animation: loader-inner 2s infinite ease-in, background-colors 2s infinite ease;
+            }
         }
     }
+}
 
-    @keyframes :global(border-colors) {
-        0% {
-            border-color: #4285F4;
-        }
-
-        25% {
-            border-color: #DE3E35;
-        }
-
-        50% {
-            border-color: #F7C223;
-        }
-
-        75% {
-            border-color: #1B9A59;
-        }
-
-        100% {
-            border-color: #4285F4;
-        }
+@keyframes border-colors {
+    0% {
+        border-color: #4285F4;
     }
 
-    @keyframes :global(background-colors) {
-        0% {
-            background-color: #4285F4;
-        }
-
-        25% {
-            background-color: #DE3E35;
-        }
-
-        50% {
-            background-color: #F7C223;
-        }
-
-        75% {
-            background-color: #1B9A59;
-        }
-
-        100% {
-            background-color: #4285F4;
-        }
+    25% {
+        border-color: #DE3E35;
     }
 
-    @keyframes :global(loader) {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        25% {
-            transform: rotate(180deg);
-        }
-
-        50% {
-            transform: rotate(180deg);
-        }
-
-        75% {
-            transform: rotate(360deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
+    50% {
+        border-color: #F7C223;
     }
 
-    @keyframes :global(loader-inner) {
-        0% {
-            height: 0%;
-        }
+    75% {
+        border-color: #1B9A59;
+    }
 
-        25% {
-            height: 0%;
-        }
+    100% {
+        border-color: #4285F4;
+    }
+}
 
-        50% {
-            height: 100%;
-        }
+@keyframes background-colors {
+    0% {
+        background-color: #4285F4;
+    }
 
-        75% {
-            height: 100%;
-        }
+    25% {
+        background-color: #DE3E35;
+    }
 
-        100% {
-            height: 0%;
-        }
+    50% {
+        background-color: #F7C223;
+    }
+
+    75% {
+        background-color: #1B9A59;
+    }
+
+    100% {
+        background-color: #4285F4;
+    }
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner {
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    75% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
     }
 }

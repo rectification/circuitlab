@@ -35,8 +35,7 @@ compiler.watch(
         if (err) {
             console.error(err.stack || err);
         }
-
-        if (stats) {
+        else if (stats) {
             console.log(stats.toString({
                 chunks: false,
                 chunkModules: false,

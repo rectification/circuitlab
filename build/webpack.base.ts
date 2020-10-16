@@ -48,10 +48,6 @@ const baseConfig: Webpack.Configuration = {
     module: {
         rules: [
             {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-            },
-            {
                 test: /\.tsx?$/,
                 exclude: /node_modules/,
                 loader: 'ts-loader',
@@ -74,11 +70,6 @@ const baseConfig: Webpack.Configuration = {
                         loader: 'css-loader',
                         options: {
                             modules: {
-                                compileType: 'module',
-                                mode: 'local',
-                                exportGlobals: true,
-                                namedExport: true,
-                                exportOnlyLocals: false,
                                 localIdentContext: resolve('src'),
                                 exportLocalsConvention: 'camelCaseOnly',
                                 localIdentName: isDevelopment ? '[local]__[hash:base64:5]' : '[hash:base64:6]',
