@@ -4,6 +4,6 @@
         "module": "commonjs",
         "target": "esnext"
     },
-    "include": ["typings", "build"],
-    "exclude": ["node_modules", "dist", "src", "test"]
+    "include": ["typings", "build", "src"],
+    "exclude": ["node_modules", "dist", "test"]
 }

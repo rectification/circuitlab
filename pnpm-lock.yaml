@@ -1,6 +1,7 @@
 dependencies:
   '@ant-design/icons': 4.3.0_react@17.0.1
   '@antv/g2': 4.0.15
+  '@babel/polyfill': 7.12.1
   antd: 4.8.2_react-dom@17.0.1+react@17.0.1
   bignumber.js: 9.0.1
   react: 17.0.1
@@ -12,6 +13,7 @@ devDependencies:
   '@types/generate-json-webpack-plugin': 0.3.1
   '@types/html-webpack-plugin': 3.2.4
   '@types/koa': 2.11.6
+  '@types/memory-fs': 0.3.2
   '@types/mini-css-extract-plugin': 1.2.1
   '@types/node': 14.14.7
   '@types/react': 16.9.56
@@ -37,7 +39,6 @@ devDependencies:
   mini-css-extract-plugin: 1.3.1_webpack@5.4.0
   nyc: 15.1.0
   progress-bar-webpack-plugin: 2.1.0_webpack@5.4.0
-  style-loader: 2.0.0_webpack@5.4.0
   stylus: 0.54.8
   stylus-loader: 4.3.0_stylus@0.54.8+webpack@5.4.0
   terser-webpack-plugin: 5.0.3_webpack@5.4.0
@@ -413,6 +414,14 @@ packages:
     resolution:
       integrity: sha1-tK8y3dRzwL+mQ71/8HKLjnG4HqA=
       tarball: '@babel/parser/download/@babel/parser-7.12.5.tgz'
+  /@babel/polyfill/7.12.1:
+    dependencies:
+      core-js: 2.6.11
+      regenerator-runtime: 0.13.7
+    dev: false
+    resolution:
+      integrity: sha1-Hy1jcdEmG72WHzxdWQkVDhLQvZY=
+      tarball: '@babel/polyfill/download/@babel/polyfill-7.12.1.tgz'
   /@babel/runtime/7.12.0:
     dependencies:
       regenerator-runtime: 0.13.7
@@ -759,6 +768,13 @@ packages:
     resolution:
       integrity: sha1-twMMqmtEr4AcKuoTunfXSv90hNU=
       tarball: '@types/koa/download/@types/koa-2.11.6.tgz'
+  /@types/memory-fs/0.3.2:
+    dependencies:
+      '@types/node': 14.14.7
+    dev: true
+    resolution:
+      integrity: sha1-XUdT+bOQywd8jIr5e8lkYzmc7M0=
+      tarball: '@types/memory-fs/download/@types/memory-fs-0.3.2.tgz'
   /@types/mime/2.0.3:
     dev: true
     resolution:
@@ -2231,6 +2247,13 @@ packages:
     resolution:
       integrity: sha1-zrbpw+SRDmOndP1KJ0URVndfbio=
       tarball: copy-webpack-plugin/download/copy-webpack-plugin-6.3.1.tgz
+  /core-js/2.6.11:
+    deprecated: 'core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.'
+    dev: false
+    requiresBuild: true
+    resolution:
+      integrity: sha1-OIMUafmSK97Y7iHJ3EaYXgOZMIw=
+      tarball: core-js/download/core-js-2.6.11.tgz
   /core-util-is/1.0.2:
     dev: true
     resolution:
@@ -7435,19 +7458,6 @@ packages:
     resolution:
       integrity: sha1-MfEoGzgyYwQ0gxwxDAHMzajL4AY=
       tarball: strip-json-comments/download/strip-json-comments-3.1.1.tgz
-  /style-loader/2.0.0_webpack@5.4.0:
-    dependencies:
-      loader-utils: 2.0.0
-      schema-utils: 3.0.0
-      webpack: 5.4.0_webpack@5.4.0
-    dev: true
-    engines:
-      node: '>= 10.13.0'
-    peerDependencies:
-      webpack: ^4.0.0 || ^5.0.0
-    resolution:
-      integrity: sha1-lmlgL9RpB0DqrsE3eZoDrdu8OTw=
-      tarball: style-loader/download/style-loader-2.0.0.tgz
   /stylehacks/4.0.3:
     dependencies:
       browserslist: 4.14.7
@@ -8345,12 +8355,14 @@ packages:
 specifiers:
   '@ant-design/icons': ^4.3.0
   '@antv/g2': ^4.0.15
+  '@babel/polyfill': ^7.12.1
   '@types/copy-webpack-plugin': ^6.2.0
   '@types/css-minimizer-webpack-plugin': ^1.1.1
   '@types/fs-extra': ^9.0.4
   '@types/generate-json-webpack-plugin': ^0.3.1
   '@types/html-webpack-plugin': ^3.2.4
   '@types/koa': ^2.11.6
+  '@types/memory-fs': ^0.3.2
   '@types/mini-css-extract-plugin': ^1.2.1
   '@types/node': ^14.14.7
   '@types/react': ^16.9.56
@@ -8380,7 +8392,6 @@ specifiers:
   progress-bar-webpack-plugin: ^2.1.0
   react: ^17.0.1
   react-dom: ^17.0.1
-  style-loader: ^2.0.0
   stylus: ^0.54.8
   stylus-loader: ^4.3.0
   terser-webpack-plugin: ^5.0.3

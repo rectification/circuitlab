@@ -23,8 +23,6 @@ Released under the MIT License.`;
 
 console.log('\x1Bc');
 
-const styleLoader = isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader;
-
 const baseConfig: Webpack.Configuration = {
     mode: process.env.NODE_ENV as Webpack.Configuration['mode'],
     entry: {
@@ -52,18 +50,18 @@ const baseConfig: Webpack.Configuration = {
                 options: {
                     configFile: resolve('tsconfig.build.json'),
                     compilerOptions: {
-                        target: isDevelopment ? 'esnext' : 'es6',
+                        target: isDevelopment ? 'esnext' : 'es5',
                     },
                 },
             },
             {
                 test: /\.css$/,
-                use: [styleLoader, 'css-loader'],
+                use: [MiniCssExtractPlugin.loader, 'css-loader'],
             },
             {
                 test: /\.styl(us)?$/,
                 use: [
-                    styleLoader,
+                    MiniCssExtractPlugin.loader,
                     {
                         loader: 'css-loader',
                         options: {

@@ -1,36 +1,38 @@
 @import './variable';
 @import './start-loading';
 
-* {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    cursor: inherit;
-    user-select: inherit;
-    -webkit-margin-before: 0;
-    -webkit-margin-after: 0;
-}
+:global {
+    * {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        cursor: inherit;
+        user-select: inherit;
+        -webkit-margin-before: 0;
+        -webkit-margin-after: 0;
+    }
 
-html, body, #app {
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    user-select: none;
-    cursor: default;
-    color: Black;
-    font-family: font-default;
-    font-size: font-default-size;
-    font-smoothing();
-}
+    html, body, #root {
+        overflow: hidden;
+        width: 100%;
+        height: 100%;
+        user-select: none;
+        cursor: default;
+        color: Black;
+        font-family: font-default;
+        font-size: font-default-size;
+        font-smoothing();
+    }
 
-input, textarea {
-    cursor: text;
-}
+    input, textarea {
+        cursor: text;
+    }
 
-.fade-enter-active, .fade-leave-active {
-    transition: opacity 0.4s ease;
-}
+    .fade-enter-active, .fade-leave-active {
+        transition: opacity 0.4s ease;
+    }
 
-.fade-enter, .fade-leave-active {
-    opacity: 0;
+    .fade-enter, .fade-leave-active {
+        opacity: 0;
+    }
 }

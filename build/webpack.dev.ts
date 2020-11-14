@@ -1,5 +1,6 @@
 import Koa from 'koa';
 import Webpack from 'webpack';
+import Mfs from 'memory-fs';
 
 import baseConfig from './webpack.base';
 
@@ -12,6 +13,7 @@ import * as fs from 'fs-extra';
 const host = 'localhost';
 const port = 8080;
 const app = new Koa();
+const mfs = new Mfs();
 
 // 删除输出文件夹
 if (fs.pathExistsSync(output)) {
@@ -26,6 +28,8 @@ baseConfig.plugins!.push(
 );
 
 const compiler = Webpack(baseConfig);
+
+compiler.outputFileSystem = mfs as any;
 
 compiler.watch(
     { ignored: /node_modules/ },
@@ -65,14 +69,14 @@ app.use((ctx, next) => {
         ? join(output, ctx.path, 'index.html')
         : join(output, ctx.path);
 
-    if (!fs.existsSync(filePath)) {
+    if (!mfs.existsSync(filePath)) {
         ctx.status = 404;
         ctx.length = 0;
         next();
         return (false);
     }
 
-    const fileStat = fs.statSync(filePath);
+    const fileStat = mfs.statSync(filePath);
 
     ctx.type = getType(filePath)!;
     ctx.lastModified = new Date();
@@ -80,8 +84,7 @@ app.use((ctx, next) => {
     ctx.set('Accept-Ranges', 'bytes');
     ctx.set('Cache-Control', 'max-age=0');
 
-    ctx.length = fileStat.size;
-    ctx.body = fs.createReadStream(filePath);
+    ctx.body = mfs.readFileSync(filePath);
 
     next();
 });

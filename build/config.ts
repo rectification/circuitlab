@@ -7,4 +7,4 @@ export const output = resolve('dist/');
 /** 构建时是否显示模块组成分析 */
 export const bundleAnalyzer = true;
 /** 调试时的公共路径 */
-export const publicPath = '';
+export const publicPath = '/';
