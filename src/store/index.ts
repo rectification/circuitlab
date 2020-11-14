@@ -4,7 +4,7 @@ import { Point } from 'src/lib/point';
 import { LineData } from 'src/components/electronic-line';
 import { PartData } from 'src/components/electronic-part';
 
-interface MapState {
+export interface MapState {
     zoom: number;
     position: Point;
 }

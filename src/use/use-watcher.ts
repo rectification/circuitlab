@@ -18,6 +18,7 @@ export function useWatcher<T>(watcher: Watcher<T>) {
         });
 
     function handleChange(val: T) {
+        debugger;
         state.current = val as any;
         update();
     }
