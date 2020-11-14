@@ -3,7 +3,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { getQueryByName, get } from 'src/utils/http';
 
-import { Render as Drawing } from 'src/components/drawing-main';
+import { Render as Drawing } from 'src/components/drawing-sheet';
 
 // 移除 loading 界面
 function loaded() {

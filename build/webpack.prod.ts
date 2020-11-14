@@ -5,26 +5,25 @@ import chalk from 'chalk';
 import webpack from 'webpack';
 import baseConfig from './webpack.base';
 import TerserPlugin from 'terser-webpack-plugin';
-import OptimizeCSSPlugin from 'optimize-css-assets-webpack-plugin';
-// import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
+import CssMinimizerWebpackPlugin from 'css-minimizer-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 
 if (!baseConfig.optimization) {
-    baseConfig.optimization = {};
+    baseConfig.optimization = {
+        minimize: true,
+    };
 }
 
 if (!baseConfig.optimization.minimizer) {
     baseConfig.optimization.minimizer = [];
 }
 
-baseConfig.plugins!.push(
-    new (OptimizeCSSPlugin as any)(),
-);
+baseConfig.optimization.minimizer.push(new (CssMinimizerWebpackPlugin as any)());
 
 baseConfig.optimization.minimizer.push(
-    new (TerserPlugin as any)({
+    new TerserPlugin({
         test: /\.js$/i,
         terserOptions: {
-            ecma: 7,
             ie8: false,
             safari10: false,
             output: {
@@ -41,9 +40,9 @@ baseConfig.performance = {
     maxEntrypointSize: 512000,
 };
 
-// if (config.bundleAnalyzer) {
-//     baseConfig.plugins!.push(new BundleAnalyzerPlugin());
-// }
+if (config.bundleAnalyzer) {
+    baseConfig.plugins!.push(new (BundleAnalyzerPlugin as any)());
+}
 
 // 删除输出文件夹
 if (fs.pathExistsSync(config.output)) {

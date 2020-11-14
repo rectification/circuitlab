@@ -7,7 +7,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import ProgressBarPlugin from 'progress-bar-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import example from './ts-json';
 import * as config from './config';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -23,9 +22,6 @@ Nice to meet you ~ o(*￣▽￣*)ブ
 Released under the MIT License.`;
 
 console.log('\x1Bc');
-
-// 编译 example
-// example();
 
 const styleLoader = isDevelopment ? 'style-loader' : MiniCssExtractPlugin.loader;
 

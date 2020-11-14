@@ -40,6 +40,6 @@
             }
         ]
     },
-    "include": ["src", "build", "typings"],
-    "exclude": ["node_modules", "packages"]
+    "include": ["src", "build", "utils", "typings"],
+    "exclude": ["node_modules"]
 }
