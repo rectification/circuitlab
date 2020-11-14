@@ -2,6 +2,9 @@ import { join } from 'path';
 import { Writable } from 'stream';
 import { spawn } from 'child_process';
 
+/** 当前版本号 */
+export  { version } from '../package.json';
+
 /**
  * Generate tag of build
  * @returns {string}
@@ -16,8 +19,8 @@ function buildTag() {
     return `${year}.${month}.${date} - ${time}`;
 }
 
-/** 当前版本号 */
-export const version = buildTag();
+/** 当前编译标签 */
+export const build = buildTag();
 
 /**
  * 定位到项目根目录
