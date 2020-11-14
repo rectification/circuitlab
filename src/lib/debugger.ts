@@ -2,7 +2,7 @@
 
 import { def } from 'src/utils/object';
 import { wait } from 'src/utils/func';
-import { default as Point, PointLike } from './point';
+import { Point, PointLike } from './point';
 import { outputMap, MapHash, NodeType } from './map';
 
 // 全局常量

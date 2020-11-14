@@ -1,5 +1,4 @@
-import Point from './point';
-
+import { Point } from './point';
 import { isArray, isNumber, isString } from 'src/utils/assert';
 
 type MatrixInput = number[][] | Matrix;
@@ -8,7 +7,7 @@ type MatrixInput = number[][] | Matrix;
  * 矩阵类
  * @class Matrix
  */
-export default class Matrix {
+export class Matrix {
     /**
      * 矩阵的行数
      * @type {number}

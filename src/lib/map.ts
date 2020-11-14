@@ -1,4 +1,4 @@
-import { default as Point, PointLike, PointCall } from 'src/lib/point';
+import { Point, PointLike, PointCall } from 'src/lib/point';
 
 import { def, clone } from 'src/utils/object';
 import { unique, removeVal } from 'src/utils/array';

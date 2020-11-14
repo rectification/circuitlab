@@ -1,4 +1,4 @@
-import Matrix from './matrix';
+import { Matrix } from './matrix';
 import { isNumber } from 'src/utils/assert';
 
 export type PointLike = number[] | Point;
@@ -9,7 +9,7 @@ export type PointInput = PointLike | number;
  *
  * @class Point
  */
-export default class Point {
+export class Point {
     0: number;
     1: number;
     readonly length!: 2;

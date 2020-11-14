@@ -1,10 +1,10 @@
 // import store from 'src/vuex';
-import Matrix from 'src/lib/matrix';
 import BigNumber from 'bignumber.js';
 import HashMap from './hashmap';
 
 import * as Mark from './mark';
 
+import { Matrix } from 'src/lib/matrix';
 import { isDef } from 'src/utils/assert';
 import { numberParser } from 'src/lib/number';
 // import { LineData, LineType } from 'src/components/electronic-line';
