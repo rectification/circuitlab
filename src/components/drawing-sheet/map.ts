@@ -59,13 +59,13 @@ export function useMap(ref: RefObject<Element>) {
                 });
             }
         };
-    
+
         document.addEventListener('wheel', whellHandler);
     
         return () => {
             document.removeEventListener('wheel', whellHandler);
         };
-    }, [ref]);
+    }, [ref.current]);
 
     return map;
 }
