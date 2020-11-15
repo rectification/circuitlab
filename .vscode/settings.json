@@ -1,5 +1,0 @@
-{
-    "eslint.enable": true,
-    "typescript.tsdk": "node_modules\\typescript\\lib",
-    "search.usePCRE2": true
-}
