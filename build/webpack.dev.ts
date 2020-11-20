@@ -15,17 +15,10 @@ const port = 8080;
 const app = new Koa();
 const mfs = new Mfs();
 
-// 删除输出文件夹
-if (fs.pathExistsSync(output)) {
-    fs.removeSync(output);
-}
-
 // 每个模块用 eval() 执行, SourceMap 作为 DataUrl 添加到文件末尾
 baseConfig.devtool = 'eval-source-map';
 // 调试用的插件
-baseConfig.plugins!.push(
-    new Webpack.NoEmitOnErrorsPlugin(),
-);
+baseConfig.plugins!.push(new Webpack.NoEmitOnErrorsPlugin());
 
 const compiler = Webpack(baseConfig);
 
@@ -75,8 +68,6 @@ app.use((ctx, next) => {
         next();
         return (false);
     }
-
-    const fileStat = mfs.statSync(filePath);
 
     ctx.type = getType(filePath)!;
     ctx.lastModified = new Date();

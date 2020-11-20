@@ -18,9 +18,8 @@ if (!baseConfig.optimization.minimizer) {
     baseConfig.optimization.minimizer = [];
 }
 
-baseConfig.optimization.minimizer.push(new (CssMinimizerWebpackPlugin as any)());
-
-baseConfig.optimization.minimizer.push(
+baseConfig.optimization.minimizer = baseConfig.optimization.minimizer.concat([
+    new (CssMinimizerWebpackPlugin as any)(),
     new TerserPlugin({
         test: /\.js$/i,
         terserOptions: {
@@ -31,7 +30,7 @@ baseConfig.optimization.minimizer.push(
             },
         },
     }),
-);
+]);
 
 baseConfig.performance = {
     hints: false,

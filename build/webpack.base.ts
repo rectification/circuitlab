@@ -131,7 +131,7 @@ const baseConfig: Webpack.Configuration = {
         new CopyWebpackPlugin({
             patterns: [
                 {
-                    from: resolve('src/assets/favicons.ico'),
+                    from: resolve('src/assets/favicon.ico'),
                 },
             ],
         }),
