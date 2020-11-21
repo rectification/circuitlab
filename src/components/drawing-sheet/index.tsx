@@ -14,6 +14,16 @@ import * as utils from './utils';
 
 import { useMap } from './map';
 import { useMouseBus } from './mouse';
+import { mapContext } from './context';
+
+export {
+    mapContext,
+    MapContext,
+} from './context';
+
+export {
+    MapState,
+} from './map';
 
 export function DrawingSheet() {
     const [lines] = useWatcherList(store.lines);
@@ -21,18 +31,20 @@ export function DrawingSheet() {
     const SheetRef = useRef<SVGSVGElement>(null);
     const lineRefs = useRef<LineRef[]>([]);
     const partRefs = useRef<PartRef[]>([]);
+    const eventBus = useMouseBus(SheetRef);
     const map = useMap(SheetRef);
-    const bus = useMouseBus(SheetRef);
 
     return (
         <section
             className={classnames(styles.drawingSheet)}
             style={utils.getBackgroundStyle(map.zoom, map.position)}>
             <svg height='100%' width='100%' ref={SheetRef}>
-                <g transform={`translate(${map.position.join(',')}) scale(${map.zoom})`}>
-                    {lines.map((data) => <Line key={data.id} ref={lineRefs} {...data} />)}
-                    {parts.map((data) => <Part key={data.id} ref={partRefs} {...data} />)}
-                </g>
+                <mapContext.Provider value={{ map }}>
+                    <g transform={`translate(${map.position.join(',')}) scale(${map.zoom})`}>
+                        {lines.map((data) => <Line key={data.id} ref={lineRefs} {...data} />)}
+                        {parts.map((data) => <Part key={data.id} ref={partRefs} {...data} />)}
+                    </g>
+                </mapContext.Provider>
             </svg>
         </section>
     );

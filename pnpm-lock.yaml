@@ -7,6 +7,7 @@ dependencies:
   classnames: 2.2.6
   react: 17.0.1
   react-dom: 17.0.1_react@17.0.1
+  react-transition-group: 4.4.1_react-dom@17.0.1+react@17.0.1
   react-use: 15.3.4_react-dom@17.0.1+react@17.0.1
 devDependencies:
   '@types/classnames': 2.2.11
@@ -21,10 +22,11 @@ devDependencies:
   '@types/node': 14.14.9
   '@types/react': 16.14.0
   '@types/react-dom': 16.9.9
+  '@types/react-transition-group': 4.4.0
   '@types/terser-webpack-plugin': 5.0.2
   '@types/webpack-bundle-analyzer': 3.9.0
-  '@typescript-eslint/eslint-plugin': 4.8.1_ec92bcfb32dafacd672922bab4f3450d
-  '@typescript-eslint/parser': 4.8.1_typescript@4.1.2
+  '@typescript-eslint/eslint-plugin': 4.8.1_e12dccfd4097068a8f354cc428ba8ee0
+  '@typescript-eslint/parser': 4.8.1_eslint@7.13.0+typescript@4.1.2
   ava: 3.13.0
   chalk: 4.1.0
   copy-webpack-plugin: 6.3.2_webpack@5.6.0
@@ -847,6 +849,13 @@ packages:
     resolution:
       integrity: sha1-0tCm9yCgIGNpzL7/91K6N7lYMTY=
       tarball: '@types/react-dom/download/@types/react-dom-16.9.9.tgz'
+  /@types/react-transition-group/4.4.0:
+    dependencies:
+      '@types/react': 16.14.0
+    dev: true
+    resolution:
+      integrity: sha1-iCg520Zd8TIOR1Pm6fcMp+m01G0=
+      tarball: '@types/react-transition-group/download/@types/react-transition-group-4.4.0.tgz'
   /@types/react/16.14.0:
     dependencies:
       '@types/prop-types': 15.7.3
@@ -948,16 +957,18 @@ packages:
     resolution:
       integrity: sha1-TTta7MTkQRezdigPv9LcNml5aMQ=
       tarball: '@types/webpack/download/@types/webpack-4.41.25.tgz'
-  /@typescript-eslint/eslint-plugin/4.8.1_ec92bcfb32dafacd672922bab4f3450d:
+  /@typescript-eslint/eslint-plugin/4.8.1_e12dccfd4097068a8f354cc428ba8ee0:
     dependencies:
-      '@typescript-eslint/experimental-utils': 4.8.1_typescript@4.1.2
-      '@typescript-eslint/parser': 4.8.1_typescript@4.1.2
+      '@typescript-eslint/experimental-utils': 4.8.1_eslint@7.13.0+typescript@4.1.2
+      '@typescript-eslint/parser': 4.8.1_eslint@7.13.0+typescript@4.1.2
       '@typescript-eslint/scope-manager': 4.8.1
       debug: 4.2.0
+      eslint: 7.13.0
       functional-red-black-tree: 1.0.1
       regexpp: 3.1.0
       semver: 7.3.2
       tsutils: 3.17.1_typescript@4.1.2
+      typescript: 4.1.2
     dev: true
     engines:
       node: ^10.12.0 || >=12.0.0
@@ -965,15 +976,19 @@ packages:
       '@typescript-eslint/parser': ^4.0.0
       eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
       typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     resolution:
       integrity: sha1-s2Kr4O5HimxtBsFFUqZJfwtIB2k=
       tarball: '@typescript-eslint/eslint-plugin/download/@typescript-eslint/eslint-plugin-4.8.1.tgz?cache=0&sync_timestamp=1605839981256&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40typescript-eslint%2Feslint-plugin%2Fdownload%2F%40typescript-eslint%2Feslint-plugin-4.8.1.tgz'
-  /@typescript-eslint/experimental-utils/4.8.1_typescript@4.1.2:
+  /@typescript-eslint/experimental-utils/4.8.1_eslint@7.13.0+typescript@4.1.2:
     dependencies:
       '@types/json-schema': 7.0.6
       '@typescript-eslint/scope-manager': 4.8.1
       '@typescript-eslint/types': 4.8.1
       '@typescript-eslint/typescript-estree': 4.8.1_typescript@4.1.2
+      eslint: 7.13.0
       eslint-scope: 5.1.1
       eslint-utils: 2.1.0
     dev: true
@@ -985,18 +1000,23 @@ packages:
     resolution:
       integrity: sha1-JydcIPpDNt+Z689hlffXqnqp8i0=
       tarball: '@typescript-eslint/experimental-utils/download/@typescript-eslint/experimental-utils-4.8.1.tgz'
-  /@typescript-eslint/parser/4.8.1_typescript@4.1.2:
+  /@typescript-eslint/parser/4.8.1_eslint@7.13.0+typescript@4.1.2:
     dependencies:
       '@typescript-eslint/scope-manager': 4.8.1
       '@typescript-eslint/types': 4.8.1
       '@typescript-eslint/typescript-estree': 4.8.1_typescript@4.1.2
       debug: 4.2.0
+      eslint: 7.13.0
+      typescript: 4.1.2
     dev: true
     engines:
       node: ^10.12.0 || >=12.0.0
     peerDependencies:
       eslint: ^5.0.0 || ^6.0.0 || ^7.0.0
       typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     resolution:
       integrity: sha1-T+L727Z0hbr8QyCzrpHjTv4SGdE=
       tarball: '@typescript-eslint/parser/download/@typescript-eslint/parser-4.8.1.tgz?cache=0&sync_timestamp=1605842107227&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40typescript-eslint%2Fparser%2Fdownload%2F%40typescript-eslint%2Fparser-4.8.1.tgz'
@@ -1027,11 +1047,15 @@ packages:
       lodash: 4.17.20
       semver: 7.3.2
       tsutils: 3.17.1_typescript@4.1.2
+      typescript: 4.1.2
     dev: true
     engines:
       node: ^10.12.0 || >=12.0.0
     peerDependencies:
       typescript: '*'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
     resolution:
       integrity: sha1-cwfj8snpXffaqNwKNLjEO37A3TI=
       tarball: '@typescript-eslint/typescript-estree/download/@typescript-eslint/typescript-estree-4.8.1.tgz'
@@ -2575,6 +2599,11 @@ packages:
     resolution:
       integrity: sha1-K0ELvro4upYzNTr/NLBdl1XQZfg=
       tarball: csstype/download/csstype-3.0.3.tgz
+  /csstype/3.0.5:
+    dev: false
+    resolution:
+      integrity: sha1-f97GoopnrhhkfFFmip/5W7L6e7g=
+      tarball: csstype/download/csstype-3.0.5.tgz
   /currently-unhandled/0.4.1:
     dependencies:
       array-find-index: 1.0.2
@@ -2647,6 +2676,11 @@ packages:
     dev: true
     engines:
       node: '>=6.0'
+    peerDependencies:
+      supports-color: '*'
+    peerDependenciesMeta:
+      supports-color:
+        optional: true
     resolution:
       integrity: sha1-fxUPk5IOlMWPVXTC/QGjEQ7/5/E=
       tarball: debug/download/debug-4.2.0.tgz?cache=0&sync_timestamp=1605842028402&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdebug%2Fdownload%2Fdebug-4.2.0.tgz
@@ -2807,6 +2841,14 @@ packages:
     resolution:
       integrity: sha1-ZyGp2u4uKTaClVtq/kFncWJ7t2g=
       tarball: dom-converter/download/dom-converter-0.2.0.tgz
+  /dom-helpers/5.2.0:
+    dependencies:
+      '@babel/runtime': 7.12.5
+      csstype: 3.0.5
+    dev: false
+    resolution:
+      integrity: sha1-V/0FTF+PNMUqPu/9t+fpPNNX2Vs=
+      tarball: dom-helpers/download/dom-helpers-5.2.0.tgz?cache=0&sync_timestamp=1596413655006&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2Fdom-helpers%2Fdownload%2Fdom-helpers-5.2.0.tgz
   /dom-serializer/0.2.2:
     dependencies:
       domelementtype: 2.0.2
@@ -6886,6 +6928,21 @@ packages:
     resolution:
       integrity: sha1-TxonOv38jzSIqMUWv9p4+HI1I2I=
       tarball: react-lifecycles-compat/download/react-lifecycles-compat-3.0.4.tgz
+  /react-transition-group/4.4.1_react-dom@17.0.1+react@17.0.1:
+    dependencies:
+      '@babel/runtime': 7.12.5
+      dom-helpers: 5.2.0
+      loose-envify: 1.4.0
+      prop-types: 15.7.2
+      react: 17.0.1
+      react-dom: 17.0.1_react@17.0.1
+    dev: false
+    peerDependencies:
+      react: '>=16.6.0'
+      react-dom: '>=16.6.0'
+    resolution:
+      integrity: sha1-Y4aPkyWjjqXulTXYKDJ/hXczRck=
+      tarball: react-transition-group/download/react-transition-group-4.4.1.tgz
   /react-universal-interface/0.6.2_react@17.0.1+tslib@2.0.3:
     dependencies:
       react: 17.0.1
@@ -8439,6 +8496,10 @@ packages:
     hasBin: true
     peerDependencies:
       webpack: '*'
+      webpack-cli: '*'
+    peerDependenciesMeta:
+      webpack-cli:
+        optional: true
     resolution:
       integrity: sha1-KC0QQ0xAOwcO2R1FmzhehztRoH0=
       tarball: webpack/download/webpack-5.6.0.tgz
@@ -8646,6 +8707,7 @@ specifiers:
   '@types/node': ^14.14.9
   '@types/react': ^16.14.0
   '@types/react-dom': ^16.9.9
+  '@types/react-transition-group': ^4.4.0
   '@types/terser-webpack-plugin': ^5.0.2
   '@types/webpack-bundle-analyzer': ^3.9.0
   '@typescript-eslint/eslint-plugin': ^4.8.1
@@ -8672,6 +8734,7 @@ specifiers:
   progress-bar-webpack-plugin: ^2.1.0
   react: ^17.0.1
   react-dom: ^17.0.1
+  react-transition-group: ^4.4.1
   react-use: ^15.3.4
   stylus: ^0.54.8
   stylus-loader: ^4.3.0

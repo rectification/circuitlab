@@ -1,35 +1,37 @@
 import { useForceUpdate } from 'src/use';
-import { mapState, MapState } from 'src/store';
 import { Point } from 'src/lib/point';
 
 import { RefObject, useEffect, useRef } from 'react';
 
-export function useMap(ref: RefObject<Element>) {
+export interface MapState {
+    zoom: number;
+    position: Point;
+}
+
+export const mapStateDefault: MapState = {
+    zoom: 1,
+    position: Point.from(0),
+};
+
+export function useMap(ref: RefObject<SVGSVGElement>) {
     if (process.env.NODE_ENV === 'development') {
         if (typeof ref !== 'object' || typeof ref.current === 'undefined') {
           console.error('useMap expects a single ref argument.');
         }
     }
 
-    const { current: map } = useRef(mapState.data);
     const update = useForceUpdate();
+    const { current: state } = useRef(mapStateDefault);
     const setMap = (val: Partial<MapState>) => {
-        (map as MapState).zoom = val.zoom ?? map.zoom;
-        (map as MapState).position = val.position ?? map.position;
-
-        mapState.setData({
-            ...mapState.data,
-            ...val,
-        });
-
+        Object.assign(state, val);
         update();
     };
 
     useEffect(() => {
-        const whellHandler = (e: WheelEvent) => {
+        const wheelHandler = (e: WheelEvent) => {
             if (ref && ref.current) {
                 const mousePosition = new Point(e.pageX, e.pageY);
-                let size = map.zoom * 20;
+                let size = state.zoom * 20;
 
                 if (e.deltaY > 0) {
                     size -= 5;
@@ -51,21 +53,21 @@ export function useMap(ref: RefObject<Element>) {
 
                 setMap({
                     zoom: size,
-                    position: map.position
+                    position: state.position
                         .add(mousePosition, -1)
-                        .mul(size / map.zoom)
+                        .mul(size / state.zoom)
                         .add(mousePosition)
                         .round(1),
                 });
             }
         };
 
-        document.addEventListener('wheel', whellHandler);
+        ref.current?.addEventListener('wheel', wheelHandler);
     
         return () => {
-            document.removeEventListener('wheel', whellHandler);
+            ref.current?.removeEventListener('wheel', wheelHandler);
         };
     }, [ref.current]);
 
-    return map;
+    return { ...state };
 }

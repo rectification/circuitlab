@@ -1,7 +1,6 @@
-import { RefObject, useEffect, useRef } from 'react';
+import { RefObject, useEffect } from 'react';
 import { useForceUpdate } from 'src/use';
 import { Point } from 'src/lib/point';
-import { mapState } from 'src/store';
 
 type Callback = (event: DrawEvent) => any | Promise<any>;
 type StopEventInput = StopEventOption | ((event?: DrawEvent) => Promise<void>);
@@ -37,8 +36,7 @@ export interface DrawEvent extends MouseEvent {
 }
 
 /** 全局事件储存 */
-const _events: DrawEventData[] = [];
-/** 全局 */
+const events: DrawEventData[] = [];
 
 /** 事件控制器 */
 export class EventController {
@@ -47,7 +45,7 @@ export class EventController {
 
 }
 
-export function useMouseBus(ref: RefObject<Element>) {
+export function useMouseBus(ref: RefObject<SVGSVGElement>) {
     if (process.env.NODE_ENV === 'development') {
         if (typeof ref !== 'object' || typeof ref.current === 'undefined') {
           console.error('useMouseBus expects a single ref argument.');
@@ -61,25 +59,12 @@ export function useMouseBus(ref: RefObject<Element>) {
 
         };
 
-        document.addEventListener('mousemove', mouseHandler);
+        ref.current?.addEventListener('mousemove', mouseHandler);
     
         return () => {
-            document.removeEventListener('mousemove', mouseHandler);
+            ref.current?.removeEventListener('mousemove', mouseHandler);
         };
     }, [ref.current]);
 
-    return {
-        start() {
-
-        },
-        setStopEvent(opt: StopEventInput) {
-
-        },
-        setMoveEvent() {
-            // ..
-        },
-        setCursorEvent() {
-            // ..
-        },
-    };
+    return () => new EventController();
 }
